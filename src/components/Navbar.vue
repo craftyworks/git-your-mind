@@ -1,6 +1,6 @@
 <template>
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" :class="{'navbar-shrink': shrinkNavbar}"
-       id="mainNav">
+       id="mainNav" v-b-scrollspy>
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Git Your Mind</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
