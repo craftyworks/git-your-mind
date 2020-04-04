@@ -1,7 +1,7 @@
 <template>
 
   <div id="app">
-    <app-header></app-header>
+    <app-header :shrinkNavbar="shrinkNavbar"></app-header>
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
       <div class="container">
@@ -187,7 +187,7 @@
     </section>
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
     <div v-show="showScrollTop" class="scroll-to-top d-lg-none position-fixed">
-      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
+      <a class="js-scroll-trigger d-block text-center text-white rounded" v-smooth-scroll href="#page-top"><i
         class="fa fa-chevron-up"></i></a>
     </div>
     <!-- Portfolio Modals--><!-- Portfolio Modal 1-->
@@ -422,8 +422,16 @@ export default {
   },
   methods: {
     handleDocumentScroll (event) {
+      // scrollTop 버튼 보여주기
       const scrollTop = window.scrollY || document.documentElement.scrollTop
       this.showScrollTop = scrollTop > 300
+
+      // Navbar shringks
+      if (scrollTop > 100) {
+        this.$store.dispatch('shrinkNavbar')
+      } else {
+        this.$store.dispatch('expandNavbar')
+      }
     }
   },
   mounted () {

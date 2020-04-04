@@ -1,5 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" :class="{'navbar-shrink': shrinkNavbar}"
+       id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Git Your Mind</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
@@ -9,17 +10,11 @@
       <collapse-transition>
         <div class="collapse navbar-collapse show" v-show="expanded" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" v-smooth-scroll href="#portfolio" @click="expanded=false">Portfolio</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" v-smooth-scroll href="#about" @click="expanded=false">About</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded" v-smooth-scroll href="#contact" @click="expanded=false">Contact</a>
+            <li v-for="menu in menus" :key="menu.id" class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded" v-smooth-scroll :href="menu.href" @click="expanded=false">{{menu.title}}</a>
             </li>
           </ul>
-      </div>
+        </div>
       </collapse-transition>
     </div>
   </nav>
@@ -27,6 +22,7 @@
 
 <script>
 import { CollapseTransition } from 'vue2-transitions'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Navigation',
@@ -37,7 +33,8 @@ export default {
     return {
       expanded: false
     }
-  }
+  },
+  computed: mapState(['shrinkNavbar', 'menus'])
 }
 </script>
 
