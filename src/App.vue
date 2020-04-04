@@ -1,43 +1,7 @@
 <template>
 
   <div id="app">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Git Your Mind</a>
-        <button
-          class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
-          type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
-          aria-expanded="false" aria-label="Toggle navigation">Menu <i class="fas fa-bars"></i></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                                 href="#portfolio">Portfolio</a></li>
-            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                                 href="#about">About</a></li>
-            <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                                                 href="#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- Masthead-->
-    <header class="masthead bg-primary text-white text-center">
-      <div class="container d-flex align-items-center flex-column">
-        <!-- Masthead Avatar Image-->
-        <img class="masthead-avatar mb-5" src="@/assets/img/avataaars.svg" alt=""/>
-        <!-- Masthead Heading-->
-        <h1 class="masthead-heading text-uppercase mb-0">Git Your Mind</h1>
-        <!-- Icon Divider-->
-        <div class="divider-custom divider-light">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <!-- Masthead Subheading-->
-        <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
-      </div>
-    </header>
+    <app-header></app-header>
     <!-- Portfolio Section-->
     <section class="page-section portfolio" id="portfolio">
       <div class="container">
@@ -446,11 +410,11 @@
 </template>
 
 <script>
-import _ from 'lodash'
+import AppHeader from './layout/AppHeader'
 
 export default {
   name: 'App',
-  components: {},
+  components: { AppHeader },
   data () {
     return {
       showScrollTop: false
@@ -463,7 +427,7 @@ export default {
     }
   },
   mounted () {
-    window.addEventListener('scroll', _.debounce(this.handleDocumentScroll, 100))
+    window.addEventListener('scroll', this._.debounce(this.handleDocumentScroll, 100))
   }
 }
 </script>
@@ -473,11 +437,7 @@ export default {
   @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
   #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
   }
 </style>
