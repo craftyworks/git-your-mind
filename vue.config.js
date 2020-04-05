@@ -1,6 +1,6 @@
 module.exports = {
   configureWebpack: {
   },
-  publicPath: 'git-your-mind',
+  publicPath: '/git-your-mind',
   outputDir: 'docs'
 }
