@@ -3,7 +3,7 @@
   <div id="app">
     <app-header></app-header>
     <portfolio></portfolio>
-    <contact></contact>
+    <reset></reset>
     <about></about>
     <app-footer></app-footer>
   </div>
@@ -13,14 +13,14 @@
 import AppHeader from './layout/AppHeader'
 import AppFooter from './layout/AppFooter'
 import Portfolio from './layout/section/Portfolio'
-import Contact from './layout/section/Contact'
+import Reset from './layout/section/Reset'
 import About from './layout/section/About'
 
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-  components: { AppHeader, AppFooter, Portfolio, Contact, About },
+  components: { AppHeader, AppFooter, Portfolio, Reset, About },
   data () {
     return {}
   },

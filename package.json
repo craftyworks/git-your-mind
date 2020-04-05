@@ -15,6 +15,7 @@
     "bootstrap-vue": "^2.10.1",
     "core-js": "^3.6.4",
     "lodash": "^4.17.15",
+    "typed.js": "^2.0.11",
     "vue": "^2.6.11",
     "vue2-smooth-scroll": "^1.2.0",
     "vue2-transitions": "^0.3.0",
