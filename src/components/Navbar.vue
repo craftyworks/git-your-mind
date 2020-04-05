@@ -1,6 +1,6 @@
 <template>
-  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" :class="{'navbar-shrink': shrinkNavbar}"
-       id="mainNav" v-b-scrollspy>
+  <nav v-b-scrollspy :class="clazz" :style="navStyle" id="mainNav"
+       class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">Git Your Mind</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
@@ -34,7 +34,15 @@ export default {
       expanded: false
     }
   },
-  computed: mapState(['shrinkNavbar', 'menus'])
+  computed: mapState({
+    menus: state => state.menus,
+    clazz: state => ({ 'navbar-shrink': state.shrinkNavbar }),
+    navStyle (state) {
+      const model = state.openModalStatus
+      const gap = 16 // 1rem
+      return (model.opened) ? { paddingRight: model.paddingRight + gap + 'px' } : {}
+    }
+  })
 }
 </script>
 
