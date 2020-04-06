@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <span class="bash-prompt">master$</span>
-    <span class="bash-command" :id="id"></span>
+    <span class="bash-command" ref="input"></span>
     <slide-y-up-transition :duration="500">
       <div v-show="completed" class="bash-result">
         <slot></slot>
@@ -23,7 +23,6 @@ export default {
     }
   },
   props: {
-    id: String,
     command: {
       type: String,
       default: ''
@@ -39,7 +38,7 @@ export default {
   },
   mounted () {
     // eslint-disable-next-line no-new
-    new Typed(`#${this.id}`, {
+    new Typed(this.$refs.input, {
       strings: [this.command],
       typeSpeed: 40,
       startDelay: this.startDelay,
@@ -51,7 +50,9 @@ export default {
             self.cursor.style.display = 'none'
           }
           this.completed = true
-          this.$emit('onComplete')
+          this._.delay(() => {
+            this.$emit('onComplete')
+          }, 300)
         }, 1000)
       }
     })
