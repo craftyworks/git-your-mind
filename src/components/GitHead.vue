@@ -1,27 +1,37 @@
 <template>
-  <div class='square-box'>
+  <div class='square-box' :style="{ left: `${left}px`, top: `${top}px` }">
     <div class='square-content'>
-      <div><span class="text-white-50"><strong><slot></slot></strong></span></div>
+      <div><span class="text-white"><strong>Head</strong></span></div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'GitCommitBox'
+  name: 'GitHead',
+  props: {
+    left: {
+      type: Number
+    },
+    top: {
+      type: Number
+    }
+  }
 }
 </script>
 
 <style scoped>
+
   .square-box {
     position: absolute;
+    left: 150px;
+    top: 70px;
     width: 70px;
-    height: 70px;
+    height: 50px;
     overflow: hidden;
     background: #282A36;
-    border: 2px solid #BD93F9;
+    border: 2px solid #F1FA8C;
     border-radius: 10px;
-    margin: auto
   }
 
   /*
@@ -34,13 +44,12 @@ export default {
   .square-content {
     margin: 5px;
     position: absolute;
-    border: 2px solid #BD93F9;
+    border: 2px solid #F1FA8C;
     border-radius: 10px;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    color: white;
   }
 
   .square-content div {

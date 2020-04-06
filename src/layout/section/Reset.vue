@@ -1,3 +1,4 @@
+import { Expo } from "gsap"
 <template>
   <!-- Contact Section-->
   <section class="page-section" id="contact">
@@ -10,9 +11,14 @@
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div>
       </div>
-      <div class="card bg-dark" style="min-height: 350px">
-        <git-commit-box ref="box"></git-commit-box>
-        <bubble></bubble>
+      <div class="card bg-dark" style="min-height: 400px">
+        <div class="container position-relative" style="width:400px; height: 400px;">
+            <git-head ref="head" :left="50" :top="35"></git-head>
+            <git-commit-box style="left: 165px; top: 20px">9e78i</git-commit-box>
+            <git-commit-box style="left: 165px; top: 110px">035cc</git-commit-box>
+            <git-commit-box style="left: 165px; top: 200px">ec5be</git-commit-box>
+            <git-commit-box style="left: 165px; top: 290px">i8fe5</git-commit-box>
+        </div>
       </div>
       <!-- Soft Reset -->
       <div class="card bg-dark" style="min-height: 350px">
@@ -62,13 +68,13 @@
 <script>
 import BashCommand from '@/components/BashCommand'
 import GitCommitBox from '@/components/GitCommitBox'
-import Bubble from '@/components/Bubble'
+import GitHead from '@/components/GitHead'
 
 import { TimelineLite, Back } from 'gsap'
 
 export default {
   name: 'Reset',
-  components: { BashCommand, GitCommitBox, Bubble },
+  components: { BashCommand, GitHead, GitCommitBox },
   data () {
     return {
       soft: {
@@ -99,10 +105,11 @@ export default {
     }
   },
   mounted () {
-    const box = this.$refs.box.$el
-    const timeline = new TimelineLite()
-    timeline.to(box, 5, { x: 200, rotation: 90, ease: Back.easeInOut })
-    timeline.to(box, 0.5, { background: 'green' }, '-=0.5')
+    const head = this.$refs.head.$el
+    const timeline = new TimelineLite({
+      onComplete: () => this._.delay(() => timeline.restart(), 1000)
+    })
+    timeline.to(head, 1, { y: 175, rotation: 0, ease: Back.easeInOut })
     this.startReset()
   }
 }
