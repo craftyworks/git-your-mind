@@ -77,6 +77,7 @@ export default {
   components: { BashCommand, GitHead, GitCommitBox },
   data () {
     return {
+      timeline: null,
       soft: {
         command: ['git reset --soft HEAD~2', 'git status'],
         step: [],
@@ -105,11 +106,11 @@ export default {
     }
   },
   mounted () {
-    const head = this.$refs.head.$el
-    const timeline = new TimelineLite({
-      onComplete: () => this._.delay(() => timeline.restart(), 1000)
+    const head = this.$refs.head
+    this.timeline = new TimelineLite({
+      onComplete: () => this._.delay(() => this.timeline.restart(), 1000)
     })
-    timeline.to(head, 1, { y: 175, rotation: 0, ease: Back.easeInOut })
+    this.timeline.to(head, 1, { y: 175, rotation: 0, ease: Back.easeInOut })
     this.startReset()
   }
 }
