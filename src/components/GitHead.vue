@@ -1,14 +1,22 @@
 <template>
-  <div class='square-box' :style="{ left: `${left}px`, top: `${top}px` }">
-    <div class='square-content'>
-      <div><span class="text-white"><strong>Head</strong></span></div>
+  <div class="git-head">
+    <div class='square-box'>
+      <div class="square-content">
+        <span class="text-white small"><slot>Head</slot></span>
+      </div>
+    </div>
+    <div>
+      <git-arrow :width="20" :height="60" :direction="'right'" style="margin: 5px 0px"></git-arrow>
     </div>
   </div>
 </template>
 
 <script>
+import GitArrow from './GitArrow'
+
 export default {
   name: 'GitHead',
+  components: { GitArrow },
   props: {
     left: {
       type: Number
@@ -21,47 +29,27 @@ export default {
 </script>
 
 <style scoped>
+  .git-head {
+    display: flex;
+    align-items: center;
+  }
 
   .square-box {
-    position: absolute;
-    left: 150px;
-    top: 70px;
-    width: 70px;
-    height: 50px;
+    width: 60px;
+    height: 20px;
     overflow: hidden;
     background: #282A36;
     border: 2px solid #F1FA8C;
-    border-radius: 10px;
-  }
-
-  /*
-  .square-box:before{
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-   */
-  .square-content {
+    border-radius: 5px;
     margin: 5px;
-    position: absolute;
-    border: 2px solid #F1FA8C;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .square-content div {
-    display: table;
-    width: 100%;
-    height: 100%;
+  .square-content {
+    overflow: hidden;
+    padding-bottom: 5px;
   }
 
-  .square-content span {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-    color: white
-  }
 </style>
