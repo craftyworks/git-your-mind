@@ -77,4 +77,5 @@ export default {
   .bash-result {
     color: #69FF94;
   }
+
 </style>
