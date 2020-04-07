@@ -1,58 +1,57 @@
 <template>
-  <div class='square-box'>
-    <div class='square-content'>
-      <div><span class="text-white-50"><strong><slot></slot></strong></span></div>
+  <div>
+    <div class='square-box'>
+      <div class="square-content">
+        <span> <slot></slot></span>
+      </div>
     </div>
+    <git-arrow v-if="hasArrow"></git-arrow>
   </div>
 </template>
 
 <script>
+import GitArrow from './GitArrow'
+
 export default {
-  name: 'GitCommitBox'
+  name: 'GitCommitBox',
+  components: { GitArrow },
+  props: {
+    hasArrow: {
+      type: Boolean,
+      default: true
+    }
+  }
 }
 </script>
 
 <style scoped>
   .square-box {
-    position: absolute;
-    width: 70px;
-    height: 70px;
+    width: 60px;
+    height: 60px;
     overflow: hidden;
     background: #282A36;
     border: 2px solid #BD93F9;
     border-radius: 10px;
-    margin: auto
+    margin: 5px;
+    display: flex;
+    justify-content: center;
   }
 
-  /*
-  .square-box:before{
-    content: "";
-    display: block;
-    padding-top: 100%;
-  }
-   */
   .square-content {
-    margin: 5px;
-    position: absolute;
+    display: flex;
+    overflow: hidden;
+    flex: auto;
     border: 2px solid #BD93F9;
-    border-radius: 10px;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    margin: 4px;
+    border-radius: 8px;
     color: white;
   }
 
-  .square-content div {
-    display: table;
-    width: 100%;
-    height: 100%;
-  }
-
   .square-content span {
-    display: table-cell;
+    flex: auto;
+    margin: auto 0;
     text-align: center;
-    vertical-align: middle;
-    color: white
+    color: white;
+    font-size: small;
   }
 </style>
