@@ -11,31 +11,52 @@ import { Expo } from "gsap"
         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
         <div class="divider-custom-line"></div>
       </div>
-      <div class="card bg-dark" style="min-height: 400px">
-        <div class="container position-relative" style="width:400px; height: 400px;">
-            <git-head ref="head" :left="50" :top="35"></git-head>
-            <git-commit-box style="left: 165px; top: 20px">9e78i</git-commit-box>
-            <git-commit-box style="left: 165px; top: 110px">035cc</git-commit-box>
-            <git-commit-box style="left: 165px; top: 200px">ec5be</git-commit-box>
-            <git-commit-box style="left: 165px; top: 290px">i8fe5</git-commit-box>
+      <div class="card bg-dark" style="height: 400px">
+        <div class="card-body d-flex">
+          <div style="flex:1; display: flex; flex-direction: column-reverse; align-items: flex-end">
+            <empty-space></empty-space>
+            <git-head ref="head" style="flex:none;">Head</git-head>
+          </div>
+          <div style="flex:1; display: flex; flex-direction: column-reverse; align-items: flex-start">
+            <git-commit-box :hasArrow="false">035cc</git-commit-box>
+            <git-commit-box>9e78i</git-commit-box>
+            <git-commit-box>ec5be</git-commit-box>
+            <git-commit-box>i8fd3</git-commit-box>
+          </div>
         </div>
       </div>
       <!-- Soft Reset -->
-      <div class="card bg-dark" style="min-height: 350px">
+      <div class="card bg-dark" style="min-height: 400px">
         <h5 class="card-header text-white">Git | Soft reset</h5>
         <div class="card-body bash-console text-white">
           <p class="card-text">Points HEAD to the specified commit</p>
           <p class="card-text">Keeps change that have been made since the new commit that HEAD points to, and keeps the
             modifications in the working directory</p>
-          <bash-command v-if="soft.step[0]" :command="soft.command[0]"
-                        @onComplete="soft.next" :hasNext="true"/>
-          <bash-command v-if="soft.step[1]" :command="soft.command[1]"
-                        @onComplete="soft.next" :hasNext="true">
-            <p class="mb-0">Changes to be committed:</p>
-            <p class="ml-3 mb-0">new file: index.js</p>
-            <p class="ml-3 mb-0">new file: styles.css</p>
-          </bash-command>
-          <bash-command v-if="soft.step[2]" @onComplete="restartReset"/>
+          <div class="d-flex">
+            <div class="d-flex" style="flex: 1">
+              <div style="flex:1; display: flex; flex-direction: column-reverse; align-items: flex-end">
+                <empty-space></empty-space>
+                <git-head ref="head" style="flex:none;">Head</git-head>
+              </div>
+              <div style="flex:1; display: flex; flex-direction: column-reverse; align-items: flex-start">
+                <git-commit-box :hasArrow="false">035cc</git-commit-box>
+                <git-commit-box>9e78i</git-commit-box>
+                <git-commit-box>ec5be</git-commit-box>
+                <git-commit-box>i8fd3</git-commit-box>
+              </div>
+            </div>
+            <div class="git-font-size" style="flex: 1">
+              <bash-command v-if="soft.step[0]" :command="soft.command[0]"
+                            @onComplete="soft.next" :hasNext="true"/>
+              <bash-command v-if="soft.step[1]" :command="soft.command[1]"
+                            @onComplete="soft.next" :hasNext="true">
+                <p class="mb-0">Changes to be committed:</p>
+                <p class="ml-3 mb-0">new file: index.js</p>
+                <p class="ml-3 mb-0">new file: styles.css</p>
+              </bash-command>
+              <bash-command v-if="soft.step[2]" @onComplete="restartReset"/>
+            </div>
+          </div>
         </div>
       </div>
       <!-- Icon Divider-->
@@ -67,14 +88,20 @@ import { Expo } from "gsap"
 
 <script>
 import BashCommand from '@/components/BashCommand'
-import GitCommitBox from '@/components/GitCommitBox'
 import GitHead from '@/components/GitHead'
+import GitCommitBox from '@/components/GitCommitBox'
+import EmptySpace from '@/components/EmptySpace'
 
 import { TimelineLite, Back } from 'gsap'
 
 export default {
   name: 'Reset',
-  components: { BashCommand, GitHead, GitCommitBox },
+  components: {
+    EmptySpace,
+    BashCommand,
+    GitHead,
+    GitCommitBox
+  },
   data () {
     return {
       timeline: null,
@@ -110,7 +137,11 @@ export default {
     this.timeline = new TimelineLite({
       onComplete: () => this._.delay(() => this.timeline.restart(), 1000)
     })
-    this.timeline.to(head, 1, { y: 175, rotation: 0, ease: Back.easeInOut })
+    this.timeline.to(head, 1, {
+      y: 175,
+      rotation: 0,
+      ease: Back.easeInOut
+    })
     this.startReset()
   }
 }
