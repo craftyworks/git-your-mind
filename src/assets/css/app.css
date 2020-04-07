@@ -1,0 +1,15 @@
+@media (max-width: 600px) {
+    .git-font-size {
+        font-size: 12px;
+    }
+}
+@media (max-width: 900px) {
+    .git-font-size {
+        font-size: 14px;
+    }
+}
+@media (min-width: 1200px) {
+    .git-font-size {
+        font-size: 16px;
+    }
+}
