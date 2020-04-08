@@ -4,7 +4,7 @@
     <app-header></app-header>
     <portfolio></portfolio>
     <reset></reset>
-    <about></about>
+    <revert></revert>
     <app-footer></app-footer>
   </div>
 </template>
@@ -14,13 +14,13 @@ import AppHeader from './layout/AppHeader'
 import AppFooter from './layout/AppFooter'
 import Portfolio from './layout/section/Portfolio'
 import Reset from './layout/section/Reset'
-import About from './layout/section/About'
+import Revert from './layout/section/Revert'
 
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-  components: { AppHeader, AppFooter, Portfolio, Reset, About },
+  components: { AppHeader, AppFooter, Portfolio, Reset, Revert },
   data () {
     return {}
   },
