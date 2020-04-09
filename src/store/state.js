@@ -6,7 +6,7 @@ export default {
     paddingRight: 0
   },
   menus: [
-    { id: 'merge', title: 'Merge', href: '#portfolio' },
+    { id: 'merge', title: 'Merge', href: '#merge' },
     { id: 'reset', title: 'Reset', href: '#reset' },
     { id: 'rebase', title: 'Revert', href: '#revert' }
   ]
