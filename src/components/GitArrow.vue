@@ -60,6 +60,17 @@ export default {
             stroke: '#F8F8F2',
             strokeWidth: this.strokeWidth
           }
+        case 'downLeft':
+          return {
+            x: 0,
+            y: 0,
+            points: [hCenter - 10, 0, 0 + this.strokeWidth, this.height - this.strokeWidth],
+            pointerLength: this.strokeWidth * 2,
+            pointerWidth: this.strokeWidth * 2,
+            fill: '#F8F8F2',
+            stroke: '#F8F8F2',
+            strokeWidth: this.strokeWidth
+          }
       }
       return {
         x: 0,
