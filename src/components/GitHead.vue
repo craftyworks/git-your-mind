@@ -32,6 +32,7 @@ export default {
   .git-head {
     display: flex;
     align-items: center;
+    flex: none;
   }
 
   .square-box {
