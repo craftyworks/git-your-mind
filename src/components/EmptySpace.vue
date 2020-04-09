@@ -25,6 +25,7 @@ export default {
 <style scoped>
   .empty-space {
     width: 60px;
+    margin: 0px 5px;
     display: flex;
     justify-content: center;
   }
