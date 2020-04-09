@@ -2,7 +2,7 @@
 
   <div id="app">
     <app-header></app-header>
-    <portfolio></portfolio>
+    <merge></merge>
     <reset></reset>
     <revert></revert>
     <app-footer></app-footer>
@@ -12,7 +12,7 @@
 <script>
 import AppHeader from './layout/AppHeader'
 import AppFooter from './layout/AppFooter'
-import Portfolio from './layout/section/Portfolio'
+import Merge from './layout/section/Merge'
 import Reset from './layout/section/Reset'
 import Revert from './layout/section/Revert'
 
@@ -20,7 +20,7 @@ import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-  components: { AppHeader, AppFooter, Portfolio, Reset, Revert },
+  components: { AppHeader, AppFooter, Merge, Reset, Revert },
   data () {
     return {}
   },
