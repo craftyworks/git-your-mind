@@ -5,7 +5,7 @@
       <p class="card-text">Points HEAD to the specified commit</p>
       <p class="card-text">Keeps change that have been made since the new commit that HEAD points to, and keeps the
         modifications in the working directory</p>
-      <div class="d-flex">
+      <div class="d-flex git-command-body">
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="3"></empty-space>
@@ -20,7 +20,7 @@
             <git-commit-box>i8fd3</git-commit-box>
           </div>
         </div>
-        <git-bash>
+        <git-bash style="min-height: 200px">
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
           <bash-command v-if="step[1]" :command="command[1]" @onComplete="next" :hasNext="true">
             <p class="mb-0">Changes to be committed:</p>

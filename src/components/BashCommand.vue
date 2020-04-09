@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <span class="bash-prompt">master$</span>
+    <span class="bash-pwd">master</span><span class="bash-prompt">$</span>
     <span class="bash-command" ref="input"></span>
     <slide-y-up-transition :duration="500">
       <div v-show="completed" class="bash-result">
@@ -65,8 +65,12 @@ export default {
     background-color: #282A36;
   }
 
-  .bash-prompt {
+  .bash-pwd {
     color: #FF92DF;
+  }
+
+  .bash-prompt {
+    color: #F8F8F2;
     margin-right: 5px;
   }
 

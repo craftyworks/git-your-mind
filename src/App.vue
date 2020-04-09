@@ -2,8 +2,10 @@
 
   <div id="app">
     <app-header></app-header>
-    <reset></reset>
-    <revert></revert>
+    <div class="app-container">
+      <reset></reset>
+      <revert></revert>
+    </div>
     <app-footer></app-footer>
   </div>
 </template>

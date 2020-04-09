@@ -5,7 +5,7 @@
       <p class="card-text">Points HEAD to the specified commit</p>
       <p class="card-text">Discard changes that have been made since the new commit that <strong>HEAD</strong>
         points to, and deletes changes in working copy</p>
-      <div class="d-flex">
+      <div class="d-flex git-command-body">
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="3"></empty-space>
@@ -24,7 +24,7 @@
             </slide-y-down-transition>
           </div>
         </div>
-        <git-bash>
+        <git-bash style="min-height: 180px">
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
           <bash-command v-if="step[1]" :command="command[1]" @onComplete="next" :hasNext="true">
             <p class="mb-0">Nothing to commit</p>

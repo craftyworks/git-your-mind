@@ -17,6 +17,7 @@
 
 .git-pointer-screen {
     flex: 1;
+    flex-basis: 40%;
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-end;
@@ -24,6 +25,7 @@
 
 .git-commit-screen {
     flex: 1;
+    flex-basis: 60%;
     display: flex;
     flex-direction: column-reverse;
     align-items: flex-start;
@@ -35,3 +37,37 @@
     font-family: SFMono-Regular, Consolas, Menlo, Monaco, "Liberation Mono", "Courier New", monospace;
 }
 
+.app-container {
+    width: 100%;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-width: 320px) {
+    .git-command-body {
+        flex-direction: column;
+    }
+}
+@media (min-width: 576px) {
+    .app-container {
+        max-width: 540px;
+    }
+    .git-command-body {
+        flex-direction: column;
+    }
+}
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 720px;
+    }
+    .git-command-body {
+        flex-direction: row;
+    }
+}
+@media (min-width: 992px) {
+    .app-container {
+        max-width: 960px;
+    }
+}

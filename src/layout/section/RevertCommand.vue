@@ -4,7 +4,7 @@
     <div class="card-body bash-console text-white">
       <p class="card-text">Reverts the changes hat commits introduce.</p>
       <p class="card-text">Creates a new commit with the reverted changes.</p>
-      <div class="d-flex">
+      <div class="d-flex git-command-body">
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="2"></empty-space>
@@ -24,7 +24,7 @@
             </slide-y-down-transition>
           </div>
         </div>
-        <git-bash>
+        <git-bash style="min-height: 150px">
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
           <bash-command v-if="step[1]" @onComplete="restartReset"/>
         </git-bash>
@@ -73,5 +73,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>
