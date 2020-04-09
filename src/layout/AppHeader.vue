@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- Navigation-->
-    <navbar></navbar>
+    <navigation></navigation>
 
     <!-- Masthead-->
     <header class="masthead bg-primary text-white text-center">
@@ -27,11 +27,8 @@
 
 <script>
   /* eslint indent: 0 */
-  import Navbar from '../components/Navbar'
-
   export default {
-    name: 'AppHeader',
-    components: { Navbar }
+    name: 'AppHeader'
   }
 </script>
 

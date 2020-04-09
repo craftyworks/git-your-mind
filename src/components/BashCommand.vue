@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     <span class="bash-prompt">master$</span>
     <span class="bash-command" ref="input"></span>
     <slide-y-up-transition :duration="500">

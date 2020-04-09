@@ -8,9 +8,9 @@
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="2"></empty-space>
-            <up-down-transition :offset="-90">
+            <git-transition :offset="-90">
               <git-head ref="head" v-show="!complete">Head</git-head>
-            </up-down-transition>
+            </git-transition>
             <empty-space :count="1"></empty-space>
           </div>
           <div class="git-commit-screen">
@@ -24,31 +24,21 @@
             </slide-y-down-transition>
           </div>
         </div>
-        <div class="git-bash-screen">
+        <git-bash>
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
           <bash-command v-if="step[1]" @onComplete="restartReset"/>
-        </div>
+        </git-bash>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BashCommand from '@/components/BashCommand'
-import GitHead from '@/components/GitHead'
-import GitCommitBox from '@/components/GitCommitBox'
-import EmptySpace from '@/components/EmptySpace'
-import UpDownTransition from '@/components/UpDownTransition'
 import { SlideYDownTransition } from 'vue2-transitions'
 
 export default {
   name: 'RevertCommand',
   components: {
-    EmptySpace,
-    BashCommand,
-    GitHead,
-    GitCommitBox,
-    UpDownTransition,
     SlideYDownTransition
   },
   data () {

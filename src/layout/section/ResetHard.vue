@@ -9,9 +9,9 @@
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="3"></empty-space>
-            <up-down-transition :offset="180">
+            <git-transition :offset="180">
               <git-head ref="head" v-show="!complete">Head</git-head>
-            </up-down-transition>
+            </git-transition>
           </div>
           <div class="git-commit-screen">
             <git-commit-box :hasArrow="false">035cc</git-commit-box>
@@ -24,34 +24,24 @@
             </slide-y-down-transition>
           </div>
         </div>
-        <div class="git-bash-screen">
+        <git-bash>
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
           <bash-command v-if="step[1]" :command="command[1]" @onComplete="next" :hasNext="true">
             <p class="mb-0">Nothing to commit</p>
           </bash-command>
           <bash-command v-if="step[2]" @onComplete="restartReset"/>
-        </div>
+        </git-bash>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import BashCommand from '@/components/BashCommand'
-import GitHead from '@/components/GitHead'
-import GitCommitBox from '@/components/GitCommitBox'
-import EmptySpace from '@/components/EmptySpace'
-import UpDownTransition from '@/components/UpDownTransition'
 import { SlideYDownTransition } from 'vue2-transitions'
 
 export default {
   name: 'ResetHard',
   components: {
-    EmptySpace,
-    BashCommand,
-    GitHead,
-    GitCommitBox,
-    UpDownTransition,
     SlideYDownTransition
   },
   data () {
