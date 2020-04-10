@@ -9,7 +9,7 @@
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="3"></empty-space>
-            <git-transition :offset="180">
+            <git-transition :boxOffset="2">
               <git-head ref="head" v-show="!complete">Head</git-head>
             </git-transition>
           </div>
