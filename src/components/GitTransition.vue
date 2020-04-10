@@ -6,6 +6,7 @@
 
 <script>
 import { TimelineLite, Back, visibility } from 'gsap'
+import { mapState } from 'vuex'
 
 // eslint-disable-next-line no-unused-vars
 const gaspHack = [visibility]
@@ -16,6 +17,10 @@ export default {
     offset: {
       type: Number,
       default: 90
+    },
+    boxOffset: {
+      type: Number,
+      default: null
     },
     name: {
       type: String,
@@ -29,6 +34,13 @@ export default {
     tweenLeave: Object
   },
   computed: {
+    calcOffset () {
+      if (this.boxOffset) {
+        const boxSize = this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
+        return this.boxOffset * (boxSize + 30)
+      }
+      return this.offset
+    },
     tweenEnterObj () {
       switch (this.name) {
         case 'xAxis':
@@ -41,12 +53,13 @@ export default {
     tweenLeaveObj () {
       switch (this.name) {
         case 'xAxis':
-          return { x: this.offset, ease: Back.easeInOut }
+          return { x: this.calcOffset, ease: Back.easeInOut }
         case 'yAxis':
-          return { y: this.offset, ease: Back.easeInOut }
+          return { y: this.calcOffset, ease: Back.easeInOut }
       }
       return {}
-    }
+    },
+    ...mapState(['mobileDevice'])
   },
   methods: {
     enter (el, done) {
