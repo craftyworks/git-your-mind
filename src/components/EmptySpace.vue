@@ -4,6 +4,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'EmptySpace',
   props: {
@@ -13,18 +14,22 @@ export default {
     }
   },
   computed: {
+    boxSize () {
+      return this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
+    },
     emptyStyle () {
       return {
-        height: `${this.count * 90}px`
+        width: `${this.boxSize}px`,
+        height: `${this.count * (this.boxSize + 30)}px`
       }
-    }
+    },
+    ...mapState(['mobileDevice'])
   }
 }
 </script>
 
 <style scoped>
   .empty-space {
-    width: 60px;
     margin: 0px 5px;
     display: flex;
     justify-content: center;
