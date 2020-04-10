@@ -19,6 +19,9 @@ export default {
 
 <style scoped>
 
+  .git-bash-screen {
+    margin: 5px 0px;
+  }
   .git-bash-screen > .card-header {
     padding: 5px 10px;
   }
