@@ -8,7 +8,7 @@
         <div class="git-state-screen">
           <div class="git-pointer-screen">
             <empty-space :count="2"></empty-space>
-            <git-transition :offset="-90">
+            <git-transition :boxOffset="-1">
               <git-head ref="head" v-show="!complete">Head</git-head>
             </git-transition>
             <empty-space :count="1"></empty-space>
