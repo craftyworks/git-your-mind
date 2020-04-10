@@ -29,19 +29,14 @@ export default {
       default: 'down'
     }
   },
-  data () {
-    return {
-      configKonva: {
-        width: this.width,
-        height: this.height
-      }
-    }
-  },
   computed: {
+    configKonva () {
+      return { width: this.width, height: this.height }
+    },
     arrowStyle () {
       return {
-        width: this.width,
-        height: this.height
+        width: this.width + 'px',
+        height: this.height + 'px'
       }
     },
     configArrow () {
@@ -83,8 +78,6 @@ export default {
         strokeWidth: this.strokeWidth
       }
     }
-  },
-  mounted () {
   }
 }
 </script>
