@@ -2,15 +2,15 @@
   <div class="git-commit">
     <div>
       <div class='square-box' :style="squareBoxStyle">
-        <div class="square-content" :style="squareContentStyle">
+        <div class="square-content code" :style="squareContentStyle">
           <span><slot></slot></span>
         </div>
       </div>
-      <git-arrow v-if="hasArrow" :direction="direction"></git-arrow>
+      <git-arrow v-if="hasArrow" :direction="direction" :width="boxSize"></git-arrow>
     </div>
     <div style="align-items: baseline; justify-items: flex-start;">
       <div v-if="hasFile" class="commit-file-box" :style="commitFileStyle">
-        <div class="commit-file">
+        <div class="commit-file code">
           <span class="text-white small">{{type + ' ' + fileName}}</span>
         </div>
       </div>
@@ -20,6 +20,7 @@
 
 <script>
 import GitArrow from './GitArrow'
+import { mapState } from 'vuex'
 
 export default {
   name: 'GitCommitBox',
@@ -51,19 +52,35 @@ export default {
     hasFile () {
       return !!(this.fileName)
     },
+    boxSize () {
+      return this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
+    },
     squareBoxStyle () {
-      return { border: `2px solid ${this.borderColor1 || this.borderColor}` }
+      const borderSize = this.mobileDevice ? 2 : 2
+      return { border: `${borderSize}px solid ${this.borderColor1 || this.borderColor}`, width: `${this.boxSize}px`, height: `${this.boxSize}px` }
     },
     squareContentStyle () {
-      return { border: `2px solid ${this.borderColor2 || this.borderColor}` }
+      const borderSize = this.mobileDevice ? 0 : 2
+      const fontSize = this.mobileDevice ? 'x-small' : 'small'
+      return {
+        border: `${borderSize}px solid ${this.borderColor2 || this.borderColor}`,
+        fontSize: `${fontSize}`
+      }
     },
     commitFileStyle () {
       const color = this.type === '+' ? '69ff94' : 'FF6E6E'
+      const boxSize = this.mobileDevice ? 70 : 70
+      const borderSize = this.mobileDevice ? 2 : 2
+      const fontSize = this.mobileDevice ? 'small' : 'small'
+
       return {
         background: `#${color}40`,
-        border: `2px solid #${color}`
+        width: `${boxSize}px`,
+        border: `${borderSize}px solid #${color}`,
+        fontSize: `${fontSize}`
       }
-    }
+    },
+    ...mapState(['mobileDevice'])
   }
 }
 </script>
@@ -76,11 +93,8 @@ export default {
   }
 
   .square-box {
-    width: 60px;
-    height: 60px;
     overflow: hidden;
     background: #282A36;
-    border: 2px solid #BD93F9;
     border-radius: 10px;
     margin: 5px;
     display: flex;
@@ -91,10 +105,10 @@ export default {
     display: flex;
     overflow: hidden;
     flex: auto;
-    border: 2px solid #BD93F9;
     margin: 4px;
     border-radius: 8px;
     color: white;
+    font-size: small;
   }
 
   .square-content span {
@@ -102,11 +116,9 @@ export default {
     margin: auto 0;
     text-align: center;
     color: white;
-    font-size: small;
   }
 
   .commit-file-box {
-    width: 70px;
     height: 20px;
     overflow: hidden;
     background: #69ff9440;
