@@ -25,10 +25,7 @@ export default {
     return {}
   },
   methods: {
-    /**
-     * docuement scroll event handler
-     */
-    onScroll (event) {
+    onScroll () {
       // 스크롤이 생기면 Top 으로 스크롤 시키는 버튼을 보여준다.
       const scrollTop = window.scrollY || document.documentElement.scrollTop
       this.showScrollTop(scrollTop > 300)
@@ -40,10 +37,15 @@ export default {
         this.expandNavbar()
       }
     },
-    ...mapMutations(['shrinkNavbar', 'expandNavbar', 'showScrollTop'])
+    onSize () {
+      this.mutate({ name: 'mobileDevice', value: window.innerWidth <= this.CONST.MOBILE_WIDTH })
+    },
+    ...mapMutations(['shrinkNavbar', 'expandNavbar', 'showScrollTop', 'mutate'])
   },
   mounted () {
     window.addEventListener('scroll', this._.debounce(this.onScroll, 300))
+    window.addEventListener('resize', this._.debounce(this.onSize, 300))
+    this.onSize()
   }
 }
 </script>
