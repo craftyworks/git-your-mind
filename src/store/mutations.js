@@ -17,5 +17,9 @@ export default {
       model.opened = false
       model.paddingRight = 0
     }
+  },
+  mutate: (store, payload) => {
+    console.log('mutate', payload)
+    store[payload.name] = payload.value
   }
 }
