@@ -6,13 +6,14 @@
       </div>
     </div>
     <div>
-      <git-arrow :width="20" :height="60" :direction="'right'" style="margin: 5px 0px"></git-arrow>
+      <git-arrow :width="20" :height="boxSize" :direction="'right'" style="margin: 5px 0px"></git-arrow>
     </div>
   </div>
 </template>
 
 <script>
 import GitArrow from './GitArrow'
+import { mapState } from 'vuex'
 
 export default {
   name: 'GitHead',
@@ -24,6 +25,12 @@ export default {
     top: {
       type: Number
     }
+  },
+  computed: {
+    boxSize () {
+      return this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
+    },
+    ...mapState(['mobileDevice'])
   }
 }
 </script>
