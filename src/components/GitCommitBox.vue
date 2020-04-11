@@ -6,7 +6,7 @@
           <span><slot></slot></span>
         </div>
       </div>
-      <slot name="arrow">
+      <slot name="arrow" :boxSize="boxSize">
         <git-arrow v-if="hasArrow" :direction="direction" :width="boxSize"></git-arrow>
       </slot>
     </div>
@@ -27,7 +27,6 @@
 
 <script>
 import GitArrow from './GitArrow'
-import { mapState } from 'vuex'
 
 export default {
   name: 'GitCommitBox',
@@ -88,8 +87,7 @@ export default {
         fontSize: fontSize,
         marginBottom: mb
       }
-    },
-    ...mapState(['mobileDevice'])
+    }
   }
 }
 </script>

@@ -4,6 +4,7 @@ import lodash from './lodash'
 import smoothScroll from './smooth-scroll'
 import konva from './konva'
 import Const from './const'
+import Util from './util'
 
 export default {
   install (Vue) {
@@ -13,5 +14,6 @@ export default {
     Vue.use(smoothScroll)
     Vue.use(konva)
     Vue.use(Const)
+    Vue.use(Util)
   }
 }

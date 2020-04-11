@@ -28,8 +28,8 @@
             <slide-y-down-transition :duration="500">
               <git-commit-box v-show="complete">
                 <template v-slot:default>9278i</template>
-                <template v-slot:arrow>
-                  <merge-arrow></merge-arrow>
+                <template v-slot:arrow="slotProps">
+                  <merge-arrow :width="slotProps.boxSize"></merge-arrow>
                 </template>
               </git-commit-box>
             </slide-y-down-transition>

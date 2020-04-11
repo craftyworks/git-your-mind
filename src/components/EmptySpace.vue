@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 export default {
   name: 'EmptySpace',
   props: {
@@ -22,8 +21,7 @@ export default {
         width: `${this.boxSize}px`,
         height: `${this.count * (this.boxSize + 30)}px`
       }
-    },
-    ...mapState(['mobileDevice'])
+    }
   }
 }
 </script>

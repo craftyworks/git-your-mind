@@ -23,9 +23,6 @@ import { mapMutations } from 'vuex'
 export default {
   name: 'App',
   components: { AppHeader, AppFooter, Merge, Reset, Revert },
-  data () {
-    return {}
-  },
   methods: {
     onScroll () {
       // 스크롤이 생기면 Top 으로 스크롤 시키는 버튼을 보여준다.

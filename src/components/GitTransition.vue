@@ -6,7 +6,6 @@
 
 <script>
 import { TimelineLite, Back, visibility } from 'gsap'
-import { mapState } from 'vuex'
 
 // eslint-disable-next-line no-unused-vars
 const gaspHack = [visibility]
@@ -59,8 +58,7 @@ export default {
           return { y: this.calcOffset, ease: Back.easeInOut }
       }
       return {}
-    },
-    ...mapState(['mobileDevice'])
+    }
   },
   methods: {
     enter (el, done) {

@@ -52,6 +52,8 @@ export default {
         stroke: this.color,
         strokeWidth: this.strokeWidth
       }
+      const offset = this.mobileDevice ? 5 : 10
+
       switch (this.direction) {
         case 'right':
           return Object.assign({}, config, {
@@ -59,11 +61,11 @@ export default {
           })
         case 'downLeft':
           return Object.assign({}, config, {
-            points: [hCenter - 10, 0, 0 + this.strokeWidth, this.height - this.strokeWidth]
+            points: [hCenter - offset, 0, 0 + this.strokeWidth, this.height - this.strokeWidth]
           })
         case 'downRight':
           return Object.assign({}, config, {
-            points: [hCenter + 10, 0, this.width - this.strokeWidth, this.height - this.strokeWidth]
+            points: [hCenter + offset, 0, this.width - this.strokeWidth, this.height - this.strokeWidth]
           })
         case 'invisible':
           return Object.assign({}, config, {

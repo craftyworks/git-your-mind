@@ -15,12 +15,10 @@ import GitArrow from '@/components/GitArrow'
 export default {
   name: 'MergeArrow',
   extends: GitArrow,
-  data () {
-    return {
-      newWidth: this.width + 20
-    }
-  },
   computed: {
+    newWidth () {
+      return this.width + (this.mobileDevice ? 10 : 20)
+    },
     arrowStyle () {
       return {
         width: this.newWidth + 'px',
@@ -32,8 +30,9 @@ export default {
     },
     configDownRightArrow () {
       const hCenter = (this.newWidth / 2)
+      const gap = this.mobileDevice ? 10 : 20
       return Object.assign({}, this.configArrow, {
-        points: [hCenter + 20, 0, this.newWidth - this.strokeWidth, this.height - this.strokeWidth]
+        points: [hCenter + gap, 0, this.newWidth - this.strokeWidth, this.height - this.strokeWidth]
       })
     }
   }

@@ -11,8 +11,12 @@
 </template>
 
 <script>
+import { TimelineLite, Elastic, visibility } from 'gsap'
 import { SlideYUpTransition } from 'vue2-transitions'
 import Typed from 'typed.js'
+
+// eslint-disable-next-line no-unused-vars
+const gaspHack = [visibility]
 
 export default {
   name: 'BashCommand',
@@ -48,6 +52,10 @@ export default {
         this._.delay(() => {
           if (this.hasNext) {
             self.cursor.style.display = 'none'
+          }
+          if (this.command) {
+            const t1 = new TimelineLite()
+            t1.to(self.el, 0.2, { margin: 1, opacity: 0.9, ease: Elastic.easeInOut, repeat: 3 })
           }
           this.completed = true
           this._.delay(() => {

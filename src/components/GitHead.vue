@@ -20,7 +20,6 @@
 
 <script>
 import GitArrow from './GitArrow'
-import { mapState } from 'vuex'
 
 export default {
   name: 'GitHead',
@@ -53,8 +52,7 @@ export default {
         fontSize: fontSize,
         marginBottom: mb
       }
-    },
-    ...mapState(['mobileDevice'])
+    }
   }
 }
 </script>
