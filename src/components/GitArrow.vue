@@ -13,20 +13,19 @@ export default {
   name: 'GitArrow',
   props: {
     width: {
-      type: Number,
       default: 60
     },
     height: {
-      type: Number,
       default: 20
     },
     strokeWidth: {
-      type: Number,
       default: 2
     },
     direction: {
-      type: String,
       default: 'down'
+    },
+    color: {
+      default: '#F8F8F2'
     }
   },
   computed: {
@@ -43,39 +42,37 @@ export default {
       const hCenter = (this.width / 2)
       const vCenter = (this.height / 2)
 
-      switch (this.direction) {
-        case 'right':
-          return {
-            x: 0,
-            y: 0,
-            points: [0, vCenter, this.width - this.strokeWidth, vCenter],
-            pointerLength: this.strokeWidth * 2,
-            pointerWidth: this.strokeWidth * 2,
-            fill: '#F8F8F2',
-            stroke: '#F8F8F2',
-            strokeWidth: this.strokeWidth
-          }
-        case 'downLeft':
-          return {
-            x: 0,
-            y: 0,
-            points: [hCenter - 10, 0, 0 + this.strokeWidth, this.height - this.strokeWidth],
-            pointerLength: this.strokeWidth * 2,
-            pointerWidth: this.strokeWidth * 2,
-            fill: '#F8F8F2',
-            stroke: '#F8F8F2',
-            strokeWidth: this.strokeWidth
-          }
-      }
-      return {
+      const config = {
         x: 0,
         y: 0,
         points: [hCenter, 0, hCenter, this.height - this.strokeWidth],
         pointerLength: this.strokeWidth * 2,
         pointerWidth: this.strokeWidth * 2,
-        fill: '#F8F8F2',
-        stroke: '#F8F8F2',
+        fill: this.color,
+        stroke: this.color,
         strokeWidth: this.strokeWidth
+      }
+      switch (this.direction) {
+        case 'right':
+          return Object.assign({}, config, {
+            points: [0, vCenter, this.width - this.strokeWidth, vCenter]
+          })
+        case 'downLeft':
+          return Object.assign({}, config, {
+            points: [hCenter - 10, 0, 0 + this.strokeWidth, this.height - this.strokeWidth]
+          })
+        case 'downRight':
+          return Object.assign({}, config, {
+            points: [hCenter + 10, 0, this.width - this.strokeWidth, this.height - this.strokeWidth]
+          })
+        case 'invisible':
+          return Object.assign({}, config, {
+            pointerLength: 0,
+            pointerWidth: 0,
+            strokeWidth: 0
+          })
+        default:
+          return config
       }
     }
   }
@@ -83,11 +80,4 @@ export default {
 </script>
 
 <style scoped>
-  .git-arrow {
-    overflow: hidden;
-    display: flex;
-    margin: 0px 5px;
-    display: flex;
-    justify-content: center;
-  }
 </style>

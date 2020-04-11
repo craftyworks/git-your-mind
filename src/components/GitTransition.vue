@@ -37,7 +37,8 @@ export default {
     calcOffset () {
       if (this.boxOffset) {
         const boxSize = this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
-        return this.boxOffset * (boxSize + 30)
+        const margin = this.name === 'yAxis' ? 30 : 10
+        return this.boxOffset * (boxSize + margin)
       }
       return this.offset
     },

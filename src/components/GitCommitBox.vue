@@ -6,12 +6,19 @@
           <span><slot></slot></span>
         </div>
       </div>
-      <git-arrow v-if="hasArrow" :direction="direction" :width="boxSize"></git-arrow>
+      <slot name="arrow">
+        <git-arrow v-if="hasArrow" :direction="direction" :width="boxSize"></git-arrow>
+      </slot>
     </div>
-    <div style="align-items: baseline; justify-items: flex-start;">
+    <div>
       <div v-if="hasFile" class="commit-file-box" :style="commitFileStyle">
-        <div class="commit-file code">
-          <span class="text-white small">{{type + ' ' + fileName}}</span>
+        <div class="commit-file">
+          <span class="text-white">{{type + ' ' + fileName}}</span>
+        </div>
+      </div>
+      <div v-if="branch" class='branch-box'>
+        <div class="branch-content" :style="branchContentStyle">
+          <span class="text-white">{{branch}}</span>
         </div>
       </div>
     </div>
@@ -27,7 +34,6 @@ export default {
   components: { GitArrow },
   props: {
     hasArrow: {
-      type: Boolean,
       default: true
     },
     direction: {
@@ -41,12 +47,9 @@ export default {
       type: String,
       default: '#BD93F9'
     },
-    borderColor1: {
-      type: String
-    },
-    borderColor2: {
-      type: String
-    }
+    borderColor1: String,
+    borderColor2: String,
+    branch: String
   },
   computed: {
     hasFile () {
@@ -69,15 +72,21 @@ export default {
     },
     commitFileStyle () {
       const color = this.type === '+' ? '69ff94' : 'FF6E6E'
-      const boxSize = this.mobileDevice ? 70 : 70
       const borderSize = this.mobileDevice ? 2 : 2
-      const fontSize = this.mobileDevice ? 'small' : 'small'
+      const fontSize = this.mobileDevice ? 'x-small' : 'small'
 
       return {
         background: `#${color}40`,
-        width: `${boxSize}px`,
         border: `${borderSize}px solid #${color}`,
         fontSize: `${fontSize}`
+      }
+    },
+    branchContentStyle () {
+      const fontSize = this.mobileDevice ? 'x-small' : 'small'
+      const mb = this.mobileDevice ? '2px' : '4px'
+      return {
+        fontSize: fontSize,
+        marginBottom: mb
       }
     },
     ...mapState(['mobileDevice'])
@@ -125,6 +134,7 @@ export default {
     border: 2px solid #69ff94;
     border-radius: 5px;
     margin: 0px 5px 20px 5px;
+    padding: 0px 5px;
     display: flex;
     align-items: center;
   }
@@ -132,9 +142,25 @@ export default {
   .commit-file {
     overflow: hidden;
     text-align: left;
-    padding-left: 3px;
-    padding-bottom: 5px;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .branch-box {
+    height: 20px;
+    overflow: hidden;
+    background: #282A36;
+    border: 2px solid #A4FFFF;
+    border-radius: 5px;
+    margin: 0px 0px 20px 0px;
+    padding: 0px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .branch-content {
+    overflow: hidden;
+    flex: none;
   }
 </style>

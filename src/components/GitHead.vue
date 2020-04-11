@@ -1,8 +1,15 @@
 <template>
   <div class="git-head">
-    <div class='square-box'>
-      <div class="square-content">
-        <span class="text-white small"><slot>Head</slot></span>
+    <div>
+      <div class='pointer-box'>
+        <div class="pointer-content" :style="pointerContentStyle">
+          <span class="text-white"><slot>Head</slot></span>
+        </div>
+      </div>
+      <div v-if="branch" class='branch-box'>
+        <div class="branch-content" :style="branchContentStyle">
+          <span class="text-white">{{branch}}</span>
+        </div>
       </div>
     </div>
     <div>
@@ -24,11 +31,28 @@ export default {
     },
     top: {
       type: Number
-    }
+    },
+    branch: String
   },
   computed: {
     boxSize () {
       return this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
+    },
+    pointerContentStyle () {
+      const fontSize = this.mobileDevice ? 'x-small' : 'small'
+      const mb = this.mobileDevice ? '2px' : '4px'
+      return {
+        fontSize: fontSize,
+        marginBottom: mb
+      }
+    },
+    branchContentStyle () {
+      const fontSize = this.mobileDevice ? 'x-small' : 'small'
+      const mb = this.mobileDevice ? '2px' : '4px'
+      return {
+        fontSize: fontSize,
+        marginBottom: mb
+      }
     },
     ...mapState(['mobileDevice'])
   }
@@ -42,7 +66,7 @@ export default {
     flex: none;
   }
 
-  .square-box {
+  .pointer-box {
     width: 60px;
     height: 20px;
     overflow: hidden;
@@ -55,9 +79,26 @@ export default {
     justify-content: center;
   }
 
-  .square-content {
+  .pointer-content {
     overflow: hidden;
-    padding-bottom: 5px;
+    flex: none;
   }
 
+  .branch-box {
+    width: 60px;
+    height: 20px;
+    overflow: hidden;
+    background: #282A36;
+    border: 2px solid #A4FFFF;
+    border-radius: 5px;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .branch-content {
+    overflow: hidden;
+    flex: none;
+  }
 </style>
