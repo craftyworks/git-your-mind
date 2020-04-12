@@ -42,20 +42,22 @@ export default {
       return this.offset
     },
     tweenEnterObj () {
+      const obj = { ease: Back.easeInOut, onComplete: () => this.$emit('afterEnter'), onStart: () => this.$emit('startEnter') }
       switch (this.name) {
         case 'xAxis':
-          return { x: 0, ease: Back.easeInOut }
+          return Object.assign({}, obj, { x: 0 })
         case 'yAxis':
-          return { y: 0, ease: Back.easeInOut }
+          return Object.assign({}, obj, { y: 0 })
       }
       return {}
     },
     tweenLeaveObj () {
+      const obj = { ease: Back.easeInOut, onComplete: () => this.$emit('afterLeave'), onStart: () => this.$emit('startLeave') }
       switch (this.name) {
         case 'xAxis':
-          return { x: this.calcOffset, ease: Back.easeInOut }
+          return Object.assign({}, obj, { x: this.calcOffset })
         case 'yAxis':
-          return { y: this.calcOffset, ease: Back.easeInOut }
+          return Object.assign({}, obj, { y: this.calcOffset })
       }
       return {}
     }

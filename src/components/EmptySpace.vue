@@ -10,6 +10,9 @@ export default {
     count: {
       type: Number,
       default: 1
+    },
+    offset: {
+      default: 30
     }
   },
   computed: {
@@ -19,7 +22,7 @@ export default {
     emptyStyle () {
       return {
         width: `${this.boxSize}px`,
-        height: `${this.count * (this.boxSize + 30)}px`
+        height: `${this.count * (this.boxSize + this.offset)}px`
       }
     }
   }

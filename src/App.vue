@@ -6,6 +6,7 @@
       <merge></merge>
       <reset></reset>
       <revert></revert>
+      <rebase></rebase>
     </div>
     <app-footer></app-footer>
   </div>
@@ -17,12 +18,13 @@ import AppFooter from './layout/AppFooter'
 import Merge from './layout/section/Merge'
 import Reset from './layout/section/Reset'
 import Revert from './layout/section/Revert'
+import Rebase from './layout/section/Rebase'
 
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-  components: { AppHeader, AppFooter, Merge, Reset, Revert },
+  components: { AppHeader, AppFooter, Merge, Reset, Revert, Rebase },
   methods: {
     onScroll () {
       // 스크롤이 생기면 Top 으로 스크롤 시키는 버튼을 보여준다.

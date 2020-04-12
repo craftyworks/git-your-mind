@@ -9,6 +9,7 @@ export default {
   menus: [
     { id: 'merge', title: 'Merge', href: '#merge' },
     { id: 'reset', title: 'Reset', href: '#reset' },
-    { id: 'rebase', title: 'Revert', href: '#revert' }
+    { id: 'revert', title: 'Revert', href: '#revert' },
+    { id: 'rebase', title: 'Rebase', href: '#rebase' }
   ]
 }

@@ -19,11 +19,11 @@
             <git-commit-box :hasArrow="false"></git-commit-box>
             <div class="d-flex flex-row">
               <git-commit-box></git-commit-box>
-              <git-commit-box :border-color="`#FF6E6E`" :direction="'downLeft'"></git-commit-box>
+              <git-commit-box :border-color="'#FF6E6E'" :direction="'downLeft'"></git-commit-box>
             </div>
             <div class="d-flex flex-row">
               <git-commit-box></git-commit-box>
-              <git-commit-box :border-color="`#FF6E6E`" :branch="'dev'"></git-commit-box>
+              <git-commit-box :border-color="'#FF6E6E'" :branch="'dev'"></git-commit-box>
             </div>
             <slide-y-down-transition :duration="500">
               <git-commit-box v-show="complete">

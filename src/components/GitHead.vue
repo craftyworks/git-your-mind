@@ -1,7 +1,7 @@
 <template>
-  <div class="git-head">
+  <div class="git-head" :style="gitHeadStyle">
     <div>
-      <div class='pointer-box'>
+      <div class='pointer-box' v-show="!branchOnly">
         <div class="pointer-content" :style="pointerContentStyle">
           <span class="text-white"><slot>Head</slot></span>
         </div>
@@ -13,7 +13,7 @@
       </div>
     </div>
     <div>
-      <git-arrow :width="20" :height="boxSize" :direction="'right'" style="margin: 5px 0px"></git-arrow>
+      <git-arrow :width="arrowWidth" :height="boxSize" :direction="direction" style="margin: 5px 0px"></git-arrow>
     </div>
   </div>
 </template>
@@ -25,15 +25,25 @@ export default {
   name: 'GitHead',
   components: { GitArrow },
   props: {
-    left: {
-      type: Number
+    left: Number,
+    top: Number,
+    branch: String,
+    branchOnly: {
+      default: false
     },
-    top: {
-      type: Number
-    },
-    branch: String
+    direction: {
+      default: 'right'
+    }
   },
   computed: {
+    gitHeadStyle () {
+      return {
+        'flex-direction': this.direction === 'left' ? 'row-reverse' : 'row'
+      }
+    },
+    arrowWidth () {
+      return this.branchOnly ? 0 : 20
+    },
     boxSize () {
       return this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
     },

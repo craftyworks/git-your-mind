@@ -55,6 +55,10 @@ export default {
       const offset = this.mobileDevice ? 5 : 10
 
       switch (this.direction) {
+        case 'left':
+          return Object.assign({}, config, {
+            points: [this.width, vCenter, this.strokeWidth, vCenter]
+          })
         case 'right':
           return Object.assign({}, config, {
             points: [0, vCenter, this.width - this.strokeWidth, vCenter]
