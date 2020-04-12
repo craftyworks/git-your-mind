@@ -16,6 +16,11 @@
           <span class="text-white">{{type + ' ' + fileName}}</span>
         </div>
       </div>
+      <div v-if="hasFile2" class="commit-file-box" :style="commitFileStyle2">
+        <div class="commit-file">
+          <span class="text-white">{{type + ' ' + fileName2}}</span>
+        </div>
+      </div>
       <div v-if="branch" class='branch-box'>
         <div class="branch-content" :style="branchContentStyle">
           <span class="text-white">{{branch}}</span>
@@ -39,6 +44,7 @@ export default {
       default: 'down'
     },
     fileName: {},
+    fileName2: {},
     type: {
       default: '+'
     },
@@ -52,6 +58,9 @@ export default {
   computed: {
     hasFile () {
       return !!(this.fileName)
+    },
+    hasFile2 () {
+      return !!(this.fileName2)
     },
     boxSize () {
       return this.mobileDevice ? this.CONST.MOBILE.SQUARE_BOX_WIDTH : this.CONST.SCREEN.SQUARE_BOX_WIDTH
@@ -72,11 +81,23 @@ export default {
       const color = this.type === '+' ? '69ff94' : 'FF6E6E'
       const borderSize = this.mobileDevice ? 2 : 2
       const fontSize = this.mobileDevice ? 'x-small' : 'small'
+      const marginB = this.hasFile2 ? '5px' : '20px'
 
       return {
         background: `#${color}40`,
         border: `${borderSize}px solid #${color}`,
-        fontSize: `${fontSize}`
+        fontSize: `${fontSize}`,
+        margin: `0px 5px ${marginB} 5px`
+      }
+    },
+    commitFileStyle2 () {
+      const color = this.type === '+' ? '69ff94' : 'FF6E6E'
+      const fontSize = this.mobileDevice ? 'x-small' : 'small'
+
+      return {
+        background: `#${color}40`,
+        fontSize: `${fontSize}`,
+        margin: '0px 5px 15px 5px'
       }
     },
     branchContentStyle () {

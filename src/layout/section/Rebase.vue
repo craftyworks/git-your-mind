@@ -11,16 +11,30 @@
     </div>
     <!-- Rebase -->
     <rebase-command></rebase-command>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Rebase drop-->
+    <rebase-drop></rebase-drop>
+    <!-- Icon Divider-->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+    </div>
+    <!-- Rebase squash -->
+    <rebase-squash></rebase-squash>
   </section>
 </template>
 
 <script>
 import RebaseCommand from './RebaseCommand'
+import RebaseDrop from './RebaseDrop'
+import RebaseSquash from './RebaseSquash'
 
 export default {
   name: 'Rebase',
   components: {
-    RebaseCommand
+    RebaseCommand, RebaseDrop, RebaseSquash
   }
 }
 </script>

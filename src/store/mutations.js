@@ -19,7 +19,6 @@ export default {
     }
   },
   mutate: (store, payload) => {
-    console.log('mutate', payload)
     store[payload.name] = payload.value
   }
 }
