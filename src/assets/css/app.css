@@ -57,10 +57,16 @@
     .git-command-body {
         flex-direction: column-reverse;
     }
+    .text-box-content p {
+        margin: 0px;
+    }
 }
 @media (min-width: 480px) {
     .git-command-body {
         flex-direction: column-reverse;
+    }
+    .text-box-content p {
+        margin: 5px 5px 5px;
     }
 }
 @media (min-width: 768px) {
@@ -73,3 +79,4 @@
         max-width: 960px;
     }
 }
+

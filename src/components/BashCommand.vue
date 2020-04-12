@@ -3,7 +3,7 @@
     <span class="bash-pwd">master</span><span class="bash-prompt">$</span>
     <span class="bash-command" ref="input"></span>
     <slide-y-up-transition :duration="500">
-      <div v-show="completed" class="bash-result">
+      <div v-show="completed" :class="bashResultClass">
         <slot></slot>
       </div>
     </slide-y-up-transition>
@@ -38,6 +38,14 @@ export default {
     startDelay: {
       type: Number,
       default: 1000
+    },
+    resultType: {
+      default: 'success'
+    }
+  },
+  computed: {
+    bashResultClass () {
+      return [`bash-result-${this.resultType}`]
     }
   },
   mounted () {
@@ -86,8 +94,11 @@ export default {
     color: #F8F8F2;
   }
 
-  .bash-result {
+  .bash-result-success {
     color: #69FF94;
   }
 
+  .bash-result-error {
+    color: #FF6E6E;
+  }
 </style>
