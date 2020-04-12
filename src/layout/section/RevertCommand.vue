@@ -14,19 +14,19 @@
             <empty-space :count="1"></empty-space>
           </div>
           <div class="git-commit-screen">
-            <git-commit-box :hasArrow="false">035cc</git-commit-box>
-            <git-commit-box :fileName="'index.js'">ec5be</git-commit-box>
-            <git-commit-box>9e78i</git-commit-box>
+            <git-commit-box :hasArrow="false"></git-commit-box>
+            <git-commit-box :fileName="'index.js'"></git-commit-box>
+            <git-commit-box></git-commit-box>
             <slide-y-down-transition :duration="500">
               <div v-show="complete">
-                <git-commit-box :fileName="'index.js'" :type="'-'">i8fd3</git-commit-box>
+                <git-commit-box :fileName="'index.js'" :type="'-'"></git-commit-box>
               </div>
             </slide-y-down-transition>
           </div>
         </div>
         <git-bash style="min-height: 150px">
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
-          <bash-command v-if="step[1]" @onComplete="restartReset"/>
+          <bash-command v-if="step[1]" @onComplete="restartCommand"/>
         </git-bash>
       </div>
     </div>
@@ -35,39 +35,18 @@
 
 <script>
 import { SlideYDownTransition } from 'vue2-transitions'
+import GitCommand from '@/mixins/git-command'
 
 export default {
   name: 'RevertCommand',
   components: {
     SlideYDownTransition
   },
+  mixins: [GitCommand],
   data () {
     return {
-      command: ['git revert ec5be'],
-      step: [],
-      next: () => this.step.push(true)
+      command: ['git revert ec5be']
     }
-  },
-  methods: {
-    startReset () {
-      this._.delay(() => {
-        this.step.push(true)
-      }, 1000)
-    },
-    restartReset (delay = 1000) {
-      this._.delay(() => {
-        this.step.splice(0, this.step.length)
-        this.startReset()
-      }, delay)
-    }
-  },
-  computed: {
-    complete () {
-      return this.step[1] === true
-    }
-  },
-  mounted () {
-    this.startReset()
   }
 }
 </script>

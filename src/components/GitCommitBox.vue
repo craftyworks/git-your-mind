@@ -3,7 +3,7 @@
     <div>
       <div class='square-box' :style="squareBoxStyle">
         <div class="square-content code" :style="squareContentStyle">
-          <span><slot></slot></span>
+          <span><slot>{{commitId}}</slot></span>
         </div>
       </div>
       <slot name="arrow" :boxSize="boxSize">
@@ -43,7 +43,6 @@ export default {
       default: '+'
     },
     borderColor: {
-      type: String,
       default: '#BD93F9'
     },
     borderColor1: String,
@@ -87,6 +86,12 @@ export default {
         fontSize: fontSize,
         marginBottom: mb
       }
+    },
+    commitId () {
+      return 'xxxxx'.replace(/[x]/g, function (c) {
+        const r = Math.random() * 16 | 0
+        return r.toString(16)
+      })
     }
   }
 }

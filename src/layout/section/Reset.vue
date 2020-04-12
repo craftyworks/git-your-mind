@@ -1,6 +1,6 @@
 <template>
   <!-- Contact Section-->
-  <section class="page-section" id="revert">
+  <section class="page-section" id="reset">
     <!-- Contact Section Heading-->
     <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Reset</h2>
     <!-- Icon Divider-->

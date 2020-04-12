@@ -14,10 +14,10 @@
             </git-transition>
           </div>
           <div class="git-commit-screen">
-            <git-commit-box :hasArrow="false">035cc</git-commit-box>
-            <git-commit-box>9e78i</git-commit-box>
-            <git-commit-box>ec5be</git-commit-box>
-            <git-commit-box>i8fd3</git-commit-box>
+            <git-commit-box :hasArrow="false"></git-commit-box>
+            <git-commit-box></git-commit-box>
+            <git-commit-box></git-commit-box>
+            <git-commit-box></git-commit-box>
           </div>
         </div>
         <git-bash style="min-height: 200px">
@@ -27,7 +27,7 @@
             <p class="ml-3 mb-0">new file: index.js</p>
             <p class="ml-3 mb-0">new file: styles.css</p>
           </bash-command>
-          <bash-command v-if="step[2]" @onComplete="restartReset"/>
+          <bash-command v-if="step[2]" @onComplete="restartCommand"/>
         </git-bash>
       </div>
     </div>
@@ -35,36 +35,15 @@
 </template>
 
 <script>
+import GitCommand from '@/mixins/git-command'
 
 export default {
   name: 'ResetSoft',
+  mixins: [GitCommand],
   data () {
     return {
-      command: ['git reset --soft HEAD~2', 'git status'],
-      step: [],
-      next: () => this.step.push(true)
+      command: ['git reset --soft HEAD~2', 'git status']
     }
-  },
-  methods: {
-    startReset () {
-      this._.delay(() => {
-        this.step.push(true)
-      }, 1000)
-    },
-    restartReset (delay = 1000) {
-      this._.delay(() => {
-        this.step.splice(0, this.step.length)
-        this.startReset()
-      }, delay)
-    }
-  },
-  computed: {
-    complete () {
-      return this.step[1] === true
-    }
-  },
-  mounted () {
-    this.startReset()
   }
 }
 </script>
