@@ -15,7 +15,7 @@
           </div>
           <div class="git-commit-screen">
             <git-commit-box :hasArrow="false"></git-commit-box>
-            <git-commit-box :fileName="'index.js'"></git-commit-box>
+            <git-commit-box :fileName="'index.js'">ec5be</git-commit-box>
             <git-commit-box></git-commit-box>
             <slide-y-down-transition :duration="500">
               <div v-show="complete">
