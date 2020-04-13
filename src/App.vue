@@ -7,6 +7,7 @@
       <reset></reset>
       <revert></revert>
       <rebase></rebase>
+      <cherry-pick></cherry-pick>
     </div>
     <app-footer></app-footer>
   </div>
@@ -19,12 +20,13 @@ import Merge from './layout/section/Merge'
 import Reset from './layout/section/Reset'
 import Revert from './layout/section/Revert'
 import Rebase from './layout/section/Rebase'
+import CherryPick from './layout/section/CherryPick'
 
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-  components: { AppHeader, AppFooter, Merge, Reset, Revert, Rebase },
+  components: { AppHeader, AppFooter, Merge, Reset, Revert, Rebase, CherryPick },
   methods: {
     onScroll () {
       // 스크롤이 생기면 Top 으로 스크롤 시키는 버튼을 보여준다.

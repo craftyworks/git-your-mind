@@ -81,13 +81,14 @@ export default {
       const color = this.type === '+' ? '69ff94' : 'FF6E6E'
       const borderSize = this.mobileDevice ? 2 : 2
       const fontSize = this.mobileDevice ? 'x-small' : 'small'
-      const marginB = this.hasFile2 ? '5px' : '20px'
+      const marginB = this.hasFile2 ? 5 : 20
+      const marginT = this.hasArrow ? 0 : 20
 
       return {
         background: `#${color}40`,
         border: `${borderSize}px solid #${color}`,
         fontSize: `${fontSize}`,
-        margin: `0px 5px ${marginB} 5px`
+        margin: `${marginT}px 5px ${marginB}px 5px`
       }
     },
     commitFileStyle2 () {

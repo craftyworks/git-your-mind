@@ -10,6 +10,7 @@ export default {
     { id: 'merge', title: 'Merge', href: '#merge' },
     { id: 'reset', title: 'Reset', href: '#reset' },
     { id: 'revert', title: 'Revert', href: '#revert' },
-    { id: 'rebase', title: 'Rebase', href: '#rebase' }
+    { id: 'rebase', title: 'Rebase', href: '#rebase' },
+    { id: 'cherry', title: 'Cherry Pick', href: '#cherry' }
   ]
 }
