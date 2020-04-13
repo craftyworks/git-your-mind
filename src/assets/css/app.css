@@ -1,9 +1,12 @@
-@media screen and (min-width: 320px) {
-    .git-bash-screen {
-        font-size: calc(12px + 6 * ((100vw - 320px) / 1000));
-    }
+/* screen <= 1000 px */
+.git-bash-screen {
+    flex: 1;
+    background-color: #21222C;
+    font-family: SFMono-Regular, Consolas, Menlo, Monaco, "Liberation Mono", "Courier New", monospace;
+    font-size: calc(12px + 6 * ((100vw - 320px) / 1000));
 }
 
+/* screen > 1000 px */
 @media screen and (min-width: 1000px) {
     .git-bash-screen {
         font-size: 16px;
@@ -31,14 +34,9 @@
     align-items: flex-start;
 }
 
-.git-bash-screen {
-    flex: 1;
-    background-color: #21222C;
-    font-family: SFMono-Regular, Consolas, Menlo, Monaco, "Liberation Mono", "Courier New", monospace;
-}
-
 .app-container {
     width: 100%;
+    max-width: 960px;
     padding-right: 1rem;
     padding-left: 1rem;
     margin-right: auto;
@@ -53,34 +51,28 @@
     justify-content: center;
 }
 
-@media (min-width: 320px) {
-    .git-command-body {
-        flex-direction: column-reverse;
-    }
-    .text-box-content p {
-        margin: 0px;
-    }
+.git-command-body {
+    flex-direction: column-reverse;
 }
+
+.text-box-content p {
+    margin: 0px;
+}
+
 @media (min-width: 480px) {
-    .git-command-body {
-        flex-direction: column-reverse;
-    }
     .text-box-content p {
         margin: 5px 5px 5px;
     }
 }
+
 @media (min-width: 768px) {
     .git-command-body {
         flex-direction: row;
     }
 }
-@media (min-width: 992px) {
-    .app-container {
-        max-width: 960px;
-    }
-}
+
 .rotate330 {
-    -webkit-transform:rotate(330deg);
+    -webkit-transform: rotate(330deg);
     -moz-transform: rotate(330deg);
     -ms-transform: rotate(330deg);
     -o-transform: rotate(330deg);
@@ -90,4 +82,89 @@
 .app-footer {
     padding-top: 2rem;
     padding-bottom: 2rem;
+}
+
+.app-card {
+    border: 2px solid #000000;
+    box-shadow: 5px 6px 0px #000000;
+    margin: 20px 0px 20px 0px;
+}
+
+.app-card .card-title {
+    font-size: 1rem;
+}
+
+.app-card .card-text {
+    font-size: 0.8em;
+    font-weight: 500;
+}
+
+.dev-logo {
+    padding: 0px 7px 0px 9px;
+    border-radius: 3px;
+}
+
+.masthead {
+    padding-top: calc(1rem + 90px);
+    padding-bottom: 2rem;
+}
+
+.masthead .masthead-avatar {
+    width: 10rem;
+}
+
+.masthead .masthead-heading {
+    font-size: 2rem;
+    line-height: 2.5rem;
+}
+
+.masthead .masthead-subheading {
+    font-size: 1.5rem;
+}
+
+@media (min-width: 480px) {
+    .app-card .card-title {
+        font-size: 1.5rem;
+    }
+
+    .app-card .card-text {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 768px) {
+    .masthead {
+        padding-top: calc(1rem + 104px);
+        padding-bottom: 6rem;
+    }
+    .masthead .masthead-avatar {
+        width: 15rem;
+    }
+    .masthead .masthead-heading {
+        font-size: 4rem;
+        line-height: 4.5rem;
+    }
+    .masthead .masthead-subheading {
+        font-size: 2.0rem;
+    }
+}
+
+.page-section {
+    padding: 3rem 0;
+}
+
+.page-section .page-section-heading {
+    font-size: 2rem;
+    line-height: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .page-section {
+        padding: 6rem 0;
+    }
+
+    .page-section .page-section-heading {
+        font-size: 2.25rem;
+        line-height: 2rem;
+    }
 }

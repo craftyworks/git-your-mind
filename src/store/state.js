@@ -11,7 +11,7 @@ export default {
     { id: 'rebase', title: 'Rebase', href: '#rebase' },
     { id: 'reset', title: 'Reset', href: '#reset' },
     { id: 'revert', title: 'Revert', href: '#revert' },
-    { id: 'cherry', title: 'Cherry Pick', href: '#cherry' },
+    { id: 'cherry', title: 'Cherry', href: '#cherry' },
     { id: 'fetch', title: 'Fetch', href: '#fetch' },
     { id: 'pull', title: 'Pull', href: '#pull' },
     { id: 'reflog', title: 'Reflog', href: '#reflog' }

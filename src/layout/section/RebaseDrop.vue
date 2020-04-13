@@ -15,7 +15,7 @@
             <div ref="commit0">
               <git-commit-box>ec5be</git-commit-box>
             </div>
-            <git-transition @startEnter="startEnter" @startLeave="startLeave">
+            <git-transition :box-offset="1" @startEnter="startEnter" @startLeave="startLeave">
               <div v-show="!complete">
                 <div class="d-flex flex-row">
                   <git-commit-box><span ref="commit1">{{commitId1}}</span></git-commit-box>

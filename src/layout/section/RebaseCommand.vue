@@ -12,7 +12,7 @@ import { TimelineLite } from "gsap"
             <empty-space></empty-space>
             <git-head ref="head" :branch="'master'" :branch-only="true"></git-head>
           </div>
-          <div class="git-commit-screen" style="flex-basis: 70%; flex-direction: row;">
+          <div class="git-commit-screen" style="flex-basis: 70%; flex-direction: row; align-items: flex-end">
             <div class="d-flex flex-column-reverse">
               <git-commit-box :hasArrow="false"></git-commit-box>
               <git-commit-box></git-commit-box>

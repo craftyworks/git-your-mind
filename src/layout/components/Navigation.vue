@@ -2,7 +2,9 @@
   <nav v-b-scrollspy :class="clazz" :style="navStyle" id="mainNav"
        class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">Git About</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img class="float-left mr-2" src="@/assets/img/git-icon.png" width="32px">
+        Git About</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
               type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
               :aria-expanded="expanded" @click="expanded = !expanded" aria-label="toggle navigation">menu <i

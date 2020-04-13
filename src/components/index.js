@@ -6,7 +6,6 @@ import GitCommitBox from './GitCommitBox'
 import GitHead from './GitHead'
 import GitTransition from './GitTransition'
 import Modal from './Modal'
-import Navigation from './Navigation'
 import TextBox from './TextBox'
 
 export default {
@@ -19,7 +18,6 @@ export default {
     Vue.component(GitHead.name, GitHead)
     Vue.component(GitTransition.name, GitTransition)
     Vue.component(Modal.name, Modal)
-    Vue.component(Navigation.name, Navigation)
     Vue.component(TextBox.name, TextBox)
   }
 }
