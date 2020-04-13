@@ -23,7 +23,7 @@
             <div class="d-flex flex-row">
               <git-commit-box></git-commit-box>
               <git-commit-box :border-color="'#FF6E6E'" :file-name="'index.js'">76d12</git-commit-box>
-              <div ref="cherry" class="position-absolute" style="margin-left: 70px">
+              <div ref="cherry" :style="cherryStyle">
                 <git-commit-box :border-color="'#FF6E6E'" :has-arrow="false" :file-name="'index.js'">76d12</git-commit-box>
               </div>
             </div>
@@ -61,13 +61,24 @@ export default {
       command: ['git cherry-pick 76d12', 'git cherry-pick 76d12']
     }
   },
+  computed: {
+    cherryStyle () {
+      const marginL = this.mobileDevice ? '50px' : '70px'
+      return {
+        position: 'absolute',
+        marginLeft: marginL
+      }
+    }
+  },
   methods: {
     nextStep () {
+      const xOffset = this.mobileDevice ? 20 : 0
+      const yOffset = this.mobileDevice ? 15 : 0
       const t1 = new TimelineLite()
       t1.set(this.$refs.cherry, { x: 0, y: 0, opacity: 1 })
         .to(this.$refs.cherry, 1, {
-          x: -70,
-          y: -90,
+          x: -70 + xOffset,
+          y: -90 + yOffset,
           opacity: 0.7,
           ease: Back.easeInOut,
           onComplete: () => {

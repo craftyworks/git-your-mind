@@ -8,25 +8,20 @@
       <revert></revert>
       <rebase></rebase>
       <cherry-pick></cherry-pick>
+      <fetch></fetch>
     </div>
     <app-footer></app-footer>
   </div>
 </template>
 
 <script>
-import AppHeader from './layout/AppHeader'
-import AppFooter from './layout/AppFooter'
-import Merge from './layout/section/Merge'
-import Reset from './layout/section/Reset'
-import Revert from './layout/section/Revert'
-import Rebase from './layout/section/Rebase'
-import CherryPick from './layout/section/CherryPick'
+import Layout from './layout'
 
 import { mapMutations } from 'vuex'
 
 export default {
   name: 'App',
-  components: { AppHeader, AppFooter, Merge, Reset, Revert, Rebase, CherryPick },
+  components: Layout,
   methods: {
     onScroll () {
       // 스크롤이 생기면 Top 으로 스크롤 시키는 버튼을 보여준다.
