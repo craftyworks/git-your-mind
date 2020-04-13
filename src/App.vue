@@ -10,6 +10,7 @@
       <cherry-pick></cherry-pick>
       <fetch></fetch>
       <pull></pull>
+      <reflog></reflog>
     </div>
     <app-footer></app-footer>
   </div>

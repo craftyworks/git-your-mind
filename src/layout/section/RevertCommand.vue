@@ -24,7 +24,7 @@
             </slide-y-down-transition>
           </div>
         </div>
-        <git-bash style="min-height: 150px">
+        <git-bash style="min-height: 120px">
           <bash-command v-if="step[0]" :command="command[0]" @onComplete="next" :hasNext="true"/>
           <bash-command v-if="step[1]" @onComplete="restartCommand"/>
         </git-bash>

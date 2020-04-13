@@ -1,21 +1,29 @@
 <template>
   <div>
     <!-- Footer-->
-    <footer class="footer text-center">
+    <footer class="footer app-footer text-center">
       <div class="container">
         <div class="row">
-          <!-- Footer Location-->
-          <div class="col-lg-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Location</h4>
-            <p class="lead mb-0">2215 John Daniel Drive<br/>Clark, MO 65243
-            </p>
-          </div>
-          <!-- Footer About Text-->
-          <div class="col-lg-4">
-            <h4 class="text-uppercase mb-4">About Freelancer</h4>
-            <p class="lead mb-0">Freelance is a free to use, MIT licensed Bootstrap theme created by<a
-              href="http://startbootstrap.com">Start Bootstrap</a>.
-            </p>
+          <div class="col-md-8 offset-md-2 col-sm-12">
+            <div class="card bg-dark text-left text-dark app-card">
+              <div class="card-header text-white">Based on the [Dev.to] post of Lydia Hallie.</div>
+              <div class="card-body bg-light">
+                <a href="https://dev.to/lydiahallie" target="_new">
+                  <img class="rounded-circle float-left mr-2" width="40"
+                       src="https://res.cloudinary.com/practicaldev/image/fetch/s--R9eLPWdR--/c_fill,f_auto,fl_progressive,h_320,q_auto,w_320/https://dev-to-uploads.s3.amazonaws.com/uploads/user/profile_image/198900/f497603e-77e4-4cfc-ae1a-a9214062aac4.jpeg">
+                </a>
+                <a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1" target="_blank">
+                  <h4 class="card-title mb-1 mt-1 text-dark">🌳🚀 CS Visualized: Useful Git Commands</h4>
+                </a>
+                <a href="https://dev.to/lydiahallie" target="_new">
+                  <p class="card-text text-dark mb-0" style="margin-left: 40px">Lydia Hallie・Apr 1, 2020</p>
+                </a>
+                <a href="https://dev.to/" target="_blank">
+                  <img class="bg-dark float-right rotate330 dev-logo" src="@/assets/img/dev-logo.svg" width="40px"
+                       height="30px">
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -23,7 +31,7 @@
     <!-- Copyright Section-->
     <section class="copyright py-4 text-center text-white">
       <div class="container">
-        <small>Copyright © Your Website 2020</small>
+        <small>Git About.com</small>
       </div>
     </section>
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
@@ -46,5 +54,17 @@
 </script>
 
 <style scoped>
+  a, a:hover, a:active, a:visited {
+    text-decoration: none;
+  }
 
+  .app-card {
+    border: 2px solid #000000;
+    box-shadow: 5px 6px 0px #000000;
+  }
+
+  .dev-logo {
+    padding: 0px 7px 0px 9px;
+    border-radius: 3px;
+  }
 </style>

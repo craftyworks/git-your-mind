@@ -79,4 +79,15 @@
         max-width: 960px;
     }
 }
+.rotate330 {
+    -webkit-transform:rotate(330deg);
+    -moz-transform: rotate(330deg);
+    -ms-transform: rotate(330deg);
+    -o-transform: rotate(330deg);
+    transform: rotate(330deg);
+}
 
+.app-footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}

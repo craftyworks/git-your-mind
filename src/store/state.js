@@ -13,6 +13,7 @@ export default {
     { id: 'revert', title: 'Revert', href: '#revert' },
     { id: 'cherry', title: 'Cherry Pick', href: '#cherry' },
     { id: 'fetch', title: 'Fetch', href: '#fetch' },
-    { id: 'pull', title: 'Pull', href: '#pull' }
+    { id: 'pull', title: 'Pull', href: '#pull' },
+    { id: 'reflog', title: 'Reflog', href: '#reflog' }
   ]
 }
