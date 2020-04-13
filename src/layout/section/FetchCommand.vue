@@ -8,7 +8,7 @@
           <div class="git-pointer-screen">
             <empty-space></empty-space>
             <git-head ref="head" :branch="'master'">Head</git-head>
-            <empty-space count="2"></empty-space>
+            <empty-space :count="2"></empty-space>
           </div>
           <div class="git-commit-screen">
             <div class="d-flex flex-row">

@@ -4,11 +4,12 @@
     <app-header></app-header>
     <div class="app-container">
       <merge></merge>
+      <rebase></rebase>
       <reset></reset>
       <revert></revert>
-      <rebase></rebase>
       <cherry-pick></cherry-pick>
       <fetch></fetch>
+      <pull></pull>
     </div>
     <app-footer></app-footer>
   </div>

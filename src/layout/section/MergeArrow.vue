@@ -15,9 +15,20 @@ import GitArrow from '@/components/GitArrow'
 export default {
   name: 'MergeArrow',
   extends: GitArrow,
+  props: {
+    downRightArrowHeight: {
+      default: 20
+    },
+    showDownRightArrow: {
+      default: true
+    }
+  },
   computed: {
     newWidth () {
       return this.width + (this.mobileDevice ? 10 : 20)
+    },
+    configKonva () {
+      return { width: this.newWidth, height: this.height }
     },
     arrowStyle () {
       return {
@@ -25,15 +36,20 @@ export default {
         height: this.height + 'px'
       }
     },
-    configKonva () {
-      return { width: this.newWidth, height: this.height }
-    },
     configDownRightArrow () {
       const hCenter = (this.newWidth / 2)
       const gap = this.mobileDevice ? 10 : 20
-      return Object.assign({}, this.configArrow, {
-        points: [hCenter + gap, 0, this.newWidth - this.strokeWidth, this.height - this.strokeWidth]
-      })
+      if (this.showDownRightArrow) {
+        return Object.assign({}, this.configArrow, {
+          points: [hCenter + gap, 0, this.newWidth - this.strokeWidth, this.downRightArrowHeight - this.strokeWidth]
+        })
+      } else {
+        return Object.assign({}, this.configArrow, {
+          pointerLength: 0,
+          pointerWidth: 0,
+          strokeWidth: 0
+        })
+      }
     }
   }
 }
