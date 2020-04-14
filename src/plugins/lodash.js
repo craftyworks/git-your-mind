@@ -1,7 +1,7 @@
-import _ from 'lodash'
+import { delay, debounce } from 'lodash'
 
 export default {
   install (Vue) {
-    Vue.set(Vue.prototype, '_', _)
+    Vue.set(Vue.prototype, '_', { debounce, delay })
   }
 }
