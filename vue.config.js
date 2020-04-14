@@ -7,6 +7,9 @@ module.exports = {
         return args
       })
   },
+  // transpileDependencies: ['vue-smooth-scroll'],
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
-  outputDir: 'docs'
+  outputDir: 'docs',
+  filenameHashing: false,
+  productionSourceMap: false
 }
