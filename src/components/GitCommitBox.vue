@@ -147,7 +147,7 @@ export default {
 
   .square-content span {
     flex: auto;
-    margin: auto 0;
+    align-self: center;
     text-align: center;
     color: white;
   }
