@@ -8,7 +8,7 @@
       <div class="d-flex git-command-body">
         <div class="git-state-screen">
           <div class="git-pointer-screen" style="flex-basis: 30%;">
-            <empty-space count="4"></empty-space>
+            <empty-space :count="4"></empty-space>
             <git-head ref="head" :branch="'master'">Head</git-head>
           </div>
           <div class="git-commit-screen flex-row" style="align-items: flex-end;">

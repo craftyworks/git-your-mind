@@ -12,7 +12,7 @@
             <git-transition :boxOffset="-3">
               <git-head ref="head" v-show="!complete" :branch="'master'">Head</git-head>
             </git-transition>
-            <empty-space count="2"></empty-space>
+            <empty-space :count="2"></empty-space>
           </div>
           <div class="git-commit-screen flex-row" style="align-items: flex-end;">
             <div class="d-flex flex-column-reverse">

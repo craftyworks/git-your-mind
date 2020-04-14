@@ -5,7 +5,7 @@
       <div class="d-flex git-command-body">
         <div class="git-state-screen">
           <div class="git-pointer-screen" style="flex-basis: 30%;">
-            <empty-space count="4"></empty-space>
+            <empty-space :count="4"></empty-space>
             <git-transition :boxOffset="3">
               <git-head ref="head" v-show="!complete" :branch="'master'">Head</git-head>
             </git-transition>
