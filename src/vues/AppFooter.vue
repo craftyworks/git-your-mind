@@ -14,9 +14,9 @@
             </small>
           </div>
           <div class="col-4">
-            <small>Git About.com</small>
+            <a href="/" target="_self"><small class="text-white">Git About.com</small></a>
           </div>
-          <div class="col-4">
+          <div class="col-4 text-right">
             <small @click="openModal('Contact')">
               Contact
             </small>
@@ -58,6 +58,7 @@ export default {
   },
   computed: {
     modalObject () {
+      console.log('modal', this.modalName)
       return () => import('./modal/' + this.modalName)
     },
     ...mapState(['showScrollTop'])
@@ -66,4 +67,7 @@ export default {
 </script>
 
 <style scoped>
+  small {
+    cursor: pointer;
+  }
 </style>

@@ -15,14 +15,7 @@
             <div class="container">
               <div class="row justify-content-center">
                 <div class="col-lg-8">
-                  <!-- Portfolio Modal - Title-->
                   <h2 class="app-modal-title text-secondary text-uppercase mb-0">{{title}}</h2>
-                  <!-- Icon Divider-->
-                  <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                  </div>
                   <slot></slot>
                   <button v-show="closeButton" class="btn btn-primary" href="#" data-dismiss="modal" @click="closeModal">
                     <i class="fas fa-times fa-fw"></i>Close Window
