@@ -7,7 +7,21 @@
     <!-- Copyright Section-->
     <section class="copyright py-4 text-center text-white">
       <div class="container">
-        <small>Git About.com</small>
+        <div class="row">
+          <div class="col-4 text-left">
+            <small @click="openModal('Attribution')">
+              Attribution
+            </small>
+          </div>
+          <div class="col-4">
+            <small>Git About.com</small>
+          </div>
+          <div class="col-4">
+            <small @click="openModal('Contact')">
+              Contact
+            </small>
+          </div>
+        </div>
       </div>
     </section>
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
@@ -16,6 +30,10 @@
         <i class="fa fa-chevron-up"></i>
       </a>
     </div>
+    <!-- Modal -->
+    <modal :show.sync="showModal" :title="modalName" :close-button="false">
+      <component :is="modalObject"></component>
+    </modal>
   </div>
 </template>
 
@@ -26,7 +44,24 @@ import LydiaBox from './components/LydiaBox'
 export default {
   name: 'AppFooter',
   components: { LydiaBox },
-  computed: mapState(['showScrollTop'])
+  data () {
+    return {
+      showModal: false,
+      modalName: 'Attribution'
+    }
+  },
+  methods: {
+    openModal (name) {
+      this.modalName = name
+      this.showModal = true
+    }
+  },
+  computed: {
+    modalObject () {
+      return () => import('./modal/' + this.modalName)
+    },
+    ...mapState(['showScrollTop'])
+  }
 }
 </script>
 

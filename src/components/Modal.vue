@@ -3,10 +3,10 @@
     <div :class="{show:show, 'd-block': show}"
          :aria-hidden="!show"
          :id="id"
+         @click.self="closeModal"
          v-show="show"
-         class="portfolio-modal modal fade" tabindex="-1" role="dialog"
-         aria-labelledby="portfolioModal1Label">
-      <div class="modal-dialog modal-xl" role="document">
+         class="app-modal modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
         <div class="modal-content">
           <button @click="closeModal" class="close" type="button" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true"><i class="fas fa-times"></i></span>
@@ -16,7 +16,7 @@
               <div class="row justify-content-center">
                 <div class="col-lg-8">
                   <!-- Portfolio Modal - Title-->
-                  <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{title}}</h2>
+                  <h2 class="app-modal-title text-secondary text-uppercase mb-0">{{title}}</h2>
                   <!-- Icon Divider-->
                   <div class="divider-custom">
                     <div class="divider-custom-line"></div>
@@ -24,7 +24,7 @@
                     <div class="divider-custom-line"></div>
                   </div>
                   <slot></slot>
-                  <button class="btn btn-primary" href="#" data-dismiss="modal" @click="closeModal">
+                  <button v-show="closeButton" class="btn btn-primary" href="#" data-dismiss="modal" @click="closeModal">
                     <i class="fas fa-times fa-fw"></i>Close Window
                   </button>
                 </div>
@@ -42,12 +42,15 @@ import { SlideYUpTransition } from 'vue2-transitions'
 import { mapMutations } from 'vuex'
 
 export default {
-  name: 'PortfolioModal',
+  name: 'modal',
   components: { SlideYUpTransition },
   props: {
     show: {
       type: Boolean,
       description: 'show/hide modal'
+    },
+    closeButton: {
+      default: true
     },
     id: String,
     title: String

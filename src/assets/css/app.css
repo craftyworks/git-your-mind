@@ -168,3 +168,30 @@
         line-height: 2rem;
     }
 }
+
+a, a:hover, a:active, a:visited {
+    text-decoration: none;
+}
+
+.app-modal .app-modal-title {
+    font-size: 2.25rem;
+    line-height: 2rem;
+}
+
+@media (min-width: 992px) {
+    .app-modal .app-modal-title {
+        font-size: 3rem;
+        line-height: 2.5rem;
+    }
+}
+
+.app-modal .close {
+    position: absolute;
+    z-index: 1;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 3rem;
+    line-height: 3rem;
+    color: #1abc9c;
+    opacity: 1;
+}
