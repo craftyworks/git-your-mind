@@ -21,7 +21,7 @@
             <div class="divider-custom-line"></div>
           </div>
         </div>
-        <div class="d-none d-lg-block">
+        <div class="d-none d-lg-block" style="width: 100%">
           <banner-command></banner-command>
         </div>
         <lydia-box></lydia-box>
