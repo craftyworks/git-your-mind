@@ -9,17 +9,17 @@
       <div class="container">
         <div class="row">
           <div class="col-4 text-left">
-            <small @click="openModal('Attribution')">
+            <p @click="openModal('Attribution')">
               Attribution
-            </small>
+            </p>
+            <p @click="openModal('Contact')">
+              Contact
+            </p>
           </div>
           <div class="col-4">
             <a href="/" target="_self"><small class="text-white">Git About.com</small></a>
           </div>
           <div class="col-4 text-right">
-            <small @click="openModal('Contact')">
-              Contact
-            </small>
           </div>
         </div>
       </div>
@@ -67,7 +67,10 @@ export default {
 </script>
 
 <style scoped>
-  small {
+  p {
     cursor: pointer;
+    font-size: 80%;
+    font-weight: 400;
+    margin-bottom: 0px;
   }
 </style>
