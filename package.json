@@ -17,8 +17,8 @@
     "core-js": "^3.6.4",
     "gsap": "^3.2.6",
     "konva": "^4.2.2",
-    "lodash": "^4.17.15",
     "typed.js": "^2.0.11",
+    "underscore": "^1.10.2",
     "vue": "^2.6.11",
     "vue-konva": "^2.1.1",
     "vue2-smooth-scroll": "^1.2.0",
@@ -37,6 +37,8 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
-    "vue-template-compiler": "^2.6.11"
+    "prerender-spa-plugin": "^3.4.0",
+    "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^3.8.0"
   }
 }

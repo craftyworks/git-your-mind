@@ -58,7 +58,7 @@ export default {
   },
   computed: {
     modalObject () {
-      console.log('modal', this.modalName)
+      // console.log('modal', this.modalName)
       return () => import('./modal/' + this.modalName)
     },
     ...mapState(['showScrollTop'])
