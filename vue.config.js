@@ -30,7 +30,7 @@ module.exports = {
       })
   },
   // transpileDependencies: ['vue-smooth-scroll'],
-  publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/git-your-mind' : '/',
   outputDir: 'docs',
   filenameHashing: false,
   productionSourceMap: false
