@@ -18,7 +18,7 @@
     "gsap": "^3.2.6",
     "konva": "^4.2.2",
     "typed.js": "^2.0.11",
-    "underscore": "^1.10.2",
+    "underscore": "^1.12.1",
     "vue": "^2.6.11",
     "vue-konva": "^2.1.1",
     "vue2-smooth-scroll": "^1.2.0",
